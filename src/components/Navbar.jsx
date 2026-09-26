@@ -1,0 +1,115 @@
+import React, { useState } from 'react';
+
+export default function Navbar({ onNavigate }) {
+  const [showResourcesModal, setShowResourcesModal] = useState(false);
+
+  const handleHowItWorksClick = () => {
+    if (onNavigate) {
+      onNavigate('landing');
+    }
+    // Smooth scroll to the "How it works" section on the landing page
+    setTimeout(() => {
+      const element = document.getElementById('how-it-works-section');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
+  return (
+    <>
+      <header className="w-full bg-white border-b border-[#c4c6cf] sticky top-0 z-50 shadow-xs">
+        {/* Main Navigation Bar */}
+        <div className="w-full px-6 md:px-12 h-20 flex justify-between items-center">
+          
+          {/* Brand & Logo */}
+          <div 
+            className="flex items-center gap-3 cursor-pointer" 
+            onClick={() => onNavigate && onNavigate('landing')}
+          >
+            <div className="w-10 h-10 rounded-lg bg-[#0b2447] flex items-center justify-center text-white font-bold shadow-xs">
+              <span className="text-[#ffe08e] text-xl font-black">A</span>
+            </div>
+            <div className="text-xl font-bold tracking-tight flex items-center">
+              <span className="text-[#000f27]">Procure</span>
+              <span className="text-[#d4af37]">Pilot</span>
+            </div>
+          </div>
+
+          {/* Center Navigation Links */}
+          <nav className="hidden lg:flex items-center space-x-8 text-sm font-medium text-[#333b4c]">
+            <button type="button" onClick={handleHowItWorksClick} className="hover:text-[#0b2447] transition-colors cursor-pointer">How it Works</button>
+            <button type="button" onClick={() => onNavigate && onNavigate('challenges')} className="hover:text-[#0b2447] transition-colors cursor-pointer">Challenges</button>
+            <button type="button" onClick={() => onNavigate && onNavigate('dashboard')} className="hover:text-[#0b2447] transition-colors cursor-pointer">For Government</button>
+            <button type="button" onClick={() => onNavigate && onNavigate('proposal-1')} className="hover:text-[#0b2447] transition-colors cursor-pointer">For Startups</button>
+            <button type="button" onClick={() => onNavigate && onNavigate('dashboard')} className="hover:text-[#0b2447] transition-colors cursor-pointer">For Experts</button>
+            <button type="button" onClick={() => setShowResourcesModal(true)} className="hover:text-[#0b2447] transition-colors cursor-pointer">Resources</button>
+          </nav>
+
+          {/* Right Action Section */}
+          <div className="flex items-center space-x-5">
+            <button type="button" className="text-[#44474e] hover:text-[#000f27] transition-colors flex items-center cursor-pointer">
+              <span className="material-symbols-outlined text-xl">search</span>
+            </button>
+            
+            <button 
+              type="button" 
+              onClick={() => onNavigate && onNavigate('signin')}
+              className="text-sm font-semibold text-[#0b2447] hover:text-black transition-colors cursor-pointer"
+            >
+              Login
+            </button>
+
+            <button 
+              type="button" 
+              onClick={() => onNavigate && onNavigate('register-1')}
+              className="px-6 py-2.5 bg-[#0b2447] text-white font-semibold text-xs rounded-lg hover:bg-[#00172e] transition-colors shadow-xs cursor-pointer"
+            >
+              Register
+            </button>
+          </div>
+
+        </div>
+      </header>
+
+      {/* Resources Modal Popup */}
+      {showResourcesModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4">
+          <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-xl border border-gray-200">
+            <div className="flex justify-between items-center pb-4 border-b border-gray-100">
+              <h3 className="text-lg font-bold text-[#000f27]">GovTech Resources &amp; Guidelines</h3>
+              <button 
+                onClick={() => setShowResourcesModal(false)}
+                className="text-gray-400 hover:text-gray-600 font-bold text-lg"
+              >
+                &times;
+              </button>
+            </div>
+            <div className="py-4 space-y-3 text-xs text-[#44474e]">
+              <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-[#0b2447] cursor-pointer">
+                <strong className="text-[#000f27] block text-sm mb-1">General Financial Rules (GFR) 149(v) Manual</strong>
+                Official documentation on direct public procurement exemptions for DPIIT-recognized startups.
+              </div>
+              <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-[#0b2447] cursor-pointer">
+                <strong className="text-[#000f27] block text-sm mb-1">Double-Blind Evaluation Framework</strong>
+                Detailed guidelines on how academic juries score proposals without vendor bias.
+              </div>
+              <div className="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-[#0b2447] cursor-pointer">
+                <strong className="text-[#000f27] block text-sm mb-1">Escrow &amp; Milestone Fund Release SOP</strong>
+                Standard operating procedures for milestone-linked tranche disbursements.
+              </div>
+            </div>
+            <div className="pt-4 border-t border-gray-100 flex justify-end">
+              <button
+                onClick={() => setShowResourcesModal(false)}
+                className="px-4 py-2 bg-[#0b2447] text-white text-xs font-bold rounded-lg hover:bg-blue-900"
+              >
+                Close Portal
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
