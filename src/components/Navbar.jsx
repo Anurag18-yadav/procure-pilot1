@@ -7,7 +7,6 @@ export default function Navbar({ onNavigate }) {
     if (onNavigate) {
       onNavigate('landing');
     }
-    // Smooth scroll to the "How it works" section on the landing page
     setTimeout(() => {
       const element = document.getElementById('how-it-works-section');
       if (element) {
@@ -22,17 +21,27 @@ export default function Navbar({ onNavigate }) {
         {/* Main Navigation Bar */}
         <div className="w-full px-6 md:px-12 h-20 flex justify-between items-center">
           
-          {/* Brand & Logo */}
+          {/* Brand & Custom Logo */}
           <div 
-            className="flex items-center gap-3 cursor-pointer" 
+            className="flex items-center gap-3 cursor-pointer group" 
             onClick={() => onNavigate && onNavigate('landing')}
           >
-            <div className="w-10 h-10 rounded-lg bg-[#0b2447] flex items-center justify-center text-white font-bold shadow-xs">
-              <span className="text-[#ffe08e] text-xl font-black">A</span>
+            {/* Custom Logo Icon matching your uploaded image */}
+            <div className="w-10 h-10 rounded-full bg-[#0b2447] border border-[#d4af37]/60 flex items-center justify-center text-white shadow-xs">
+              <svg className="w-5 h-5 text-white transform rotate-45 translate-x-[-1px]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+              </svg>
             </div>
-            <div className="text-xl font-bold tracking-tight flex items-center">
-              <span className="text-[#000f27]">Procure</span>
-              <span className="text-[#d4af37]">Pilot</span>
+            
+            {/* Logo Text */}
+            <div className="flex flex-col">
+              <div className="text-xl font-bold tracking-tight flex items-center">
+                <span className="text-[#0b2447]">Procure</span>
+                <span className="text-[#e6ac00]">Pilot</span>
+              </div>
+              <span className="text-[9px] font-semibold text-gray-400 tracking-wider uppercase -mt-1">
+                Launch. Pilot. Scale.
+              </span>
             </div>
           </div>
 
@@ -80,7 +89,7 @@ export default function Navbar({ onNavigate }) {
               <h3 className="text-lg font-bold text-[#000f27]">GovTech Resources &amp; Guidelines</h3>
               <button 
                 onClick={() => setShowResourcesModal(false)}
-                className="text-gray-400 hover:text-gray-600 font-bold text-lg"
+                className="text-gray-400 hover:text-gray-600 font-bold text-lg cursor-pointer"
               >
                 &times;
               </button>
@@ -102,7 +111,7 @@ export default function Navbar({ onNavigate }) {
             <div className="pt-4 border-t border-gray-100 flex justify-end">
               <button
                 onClick={() => setShowResourcesModal(false)}
-                className="px-4 py-2 bg-[#0b2447] text-white text-xs font-bold rounded-lg hover:bg-blue-900"
+                className="px-4 py-2 bg-[#0b2447] text-white text-xs font-bold rounded-lg hover:bg-blue-900 cursor-pointer"
               >
                 Close Portal
               </button>

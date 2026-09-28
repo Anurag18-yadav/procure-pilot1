@@ -3,114 +3,117 @@ import Navbar from './Navbar';
 
 export default function LandingPage({ onNavigate, onLogin, onRegister, onExploreChallenges }) {
   return (
-    <div className="w-full min-h-screen bg-[#f8f9fb] text-[#191c1e] font-sans flex flex-col m-0 p-0 overflow-x-hidden">
-      
-      {/* Unified Global Header */}
+    <div className="w-full min-h-screen bg-[#f8f9fb] text-[#191c1e] font-sans selection:bg-[#cadaff]">
       <Navbar onNavigate={onNavigate} />
 
-      {/* Main Hero Section */}
-      <section className="w-full px-6 md:px-16 py-20 lg:py-28 text-center flex-1 flex flex-col justify-center items-center bg-[#f8f9fb]">
-        
-        {/* Badge Indicator */}
-        <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#FFF8E1] text-[#B26A00] border border-[#FFE082] text-xs font-bold rounded-full uppercase tracking-wider mb-6 shadow-xs">
-          <span className="w-2 h-2 rounded-full bg-[#B26A00] animate-pulse"></span>
-          Public Procurement Innovation Platform • GFR 2017 Compliant
+      {/* HERO SECTION */}
+      <section className="w-full max-w-7xl mx-auto px-6 py-20 text-center flex flex-col items-center">
+        <span className="inline-flex items-center gap-1.5 bg-[#fef3c5] text-[#713b00] text-xs font-semibold px-3 py-1 rounded-full mb-6 border border-[#fde047]/60">
+          <span className="w-2 h-2 rounded-full bg-[#ca8a04]"></span>
+          PUBLIC PROCUREMENT INNOVATION PLATFORM • GFR 2017 COMPLIANT
         </span>
 
-        {/* Hero Title */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#000f27] max-w-5xl mx-auto leading-tight tracking-tight">
+        <h1 className="text-4xl md:text-6xl font-extrabold text-[#000f27] tracking-tight max-w-4xl leading-tight mb-6">
           Government challenges, solved by the right startups — not just the biggest ones.
         </h1>
 
-        {/* Hero Subtitle */}
-        <p className="text-[#44474e] mt-6 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
+        <p className="text-base md:text-lg text-[#44474e] max-w-2xl mb-10 leading-relaxed">
           ProcurePilot connects verified Indian startups with real government problem statements through blind, expert-led evaluation, secure institutional escrow, and monitored pilots.
         </p>
-        
-        {/* CTA Action Buttons */}
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <button 
-            type="button"
-            onClick={onExploreChallenges || (() => onNavigate && onNavigate('challenges'))}
-            className="px-8 py-4 bg-[#0b2447] text-white font-bold text-sm rounded-lg hover:bg-[#000f27] transition-all active:scale-[0.98] shadow-sm flex items-center gap-2"
-          >
-            <span>Explore Challenges</span>
-            <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-          </button>
 
+        <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
           <button 
             type="button"
-            onClick={onRegister || (() => onNavigate && onNavigate('register-1'))}
-            className="px-8 py-4 border border-[#c4c6cf] bg-white text-[#000f27] font-bold text-sm rounded-lg hover:bg-[#f2f4f6] transition-all active:scale-[0.98]"
+            onClick={onExploreChallenges}
+            className="w-full sm:w-auto px-7 py-3.5 bg-[#0b2447] text-white font-bold text-sm rounded-xl hover:bg-[#00172e] transition-colors shadow-sm cursor-pointer flex items-center justify-center gap-2"
+          >
+            Explore Challenges <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </button>
+          
+          <button 
+            type="button"
+            onClick={onRegister}
+            className="w-full sm:w-auto px-7 py-3.5 bg-white border border-[#c4c6cf] text-[#000f27] font-bold text-sm rounded-xl hover:bg-[#f2f4f6] transition-colors cursor-pointer"
           >
             Post a Challenge / Register Startup
           </button>
         </div>
-
-        {/* Stats & Trust Indicators Bar */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-6xl pt-10 border-t border-[#c4c6cf]/60">
-          <div className="bg-white p-5 rounded-xl border border-[#c4c6cf]/60 shadow-xs text-center">
-            <span className="block text-2xl lg:text-3xl font-extrabold text-[#000f27]">12+</span>
-            <span className="text-xs font-semibold text-[#44474e] uppercase tracking-wider mt-1 block">Active Government Challenges</span>
-          </div>
-          <div className="bg-white p-5 rounded-xl border border-[#c4c6cf]/60 shadow-xs text-center">
-            <span className="block text-2xl lg:text-3xl font-extrabold text-[#000f27]">45+</span>
-            <span className="text-xs font-semibold text-[#44474e] uppercase tracking-wider mt-1 block">Verified Startups Onboarded</span>
-          </div>
-          <div className="bg-white p-5 rounded-xl border border-[#c4c6cf]/60 shadow-xs text-center">
-            <span className="block text-2xl lg:text-3xl font-extrabold text-[#000f27]">₹6.4 Cr</span>
-            <span className="text-xs font-semibold text-[#44474e] uppercase tracking-wider mt-1 block">Total Pilot Grants Awarded</span>
-          </div>
-          <div className="bg-white p-5 rounded-xl border border-[#c4c6cf]/60 shadow-xs text-center">
-            <span className="block text-2xl lg:text-3xl font-extrabold text-[#157F4B]">100%</span>
-            <span className="text-xs font-semibold text-[#44474e] uppercase tracking-wider mt-1 block">Double-Blind Jury Audit</span>
-          </div>
-        </div>
-
       </section>
 
-      {/* Footer Section */}
-      <footer className="w-full bg-[#000f27] text-white border-t border-gray-800 py-12 px-6 md:px-16 mt-auto">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
-          <div className="space-y-3 max-w-sm">
-            <div className="text-xl font-bold flex items-center gap-2">
-              ProcurePilot
-              <span className="text-[10px] uppercase bg-white/10 text-gray-300 px-2 py-0.5 rounded">GovTech Sandbox</span>
-            </div>
-            <p className="text-xs text-gray-300 leading-relaxed">
-              National institutional procurement sandbox fostering transparent, double-blind evaluation of pioneering startup solutions across India's public sector.
-            </p>
-            <p className="text-xs text-gray-400 pt-2">
-              © 2026 ProcurePilot. A prototype built for Smart India Hackathon 2026 — Team Snap DG.
+      {/* HOW IT WORKS SECTION */}
+      <section id="how-it-works-section" className="w-full bg-[#f8f9fb] py-20 px-6">
+        <div className="w-full max-w-7xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#0b2447] bg-[#d7e3ff] px-3 py-1 rounded-full">
+              Platform Workflow
+            </span>
+            <h2 className="text-3xl font-bold text-[#000f27] mt-3">How ProcurePilot Works</h2>
+            <p className="text-sm text-[#44474e] mt-2">
+              Following standard PRD and GFR institutional guidelines, our 4-stage pipeline ensures total transparency and speed.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 text-xs font-semibold text-gray-300">
-            <div>
-              <h4 className="text-sm font-bold text-white mb-3">Protocols</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-white transition-colors">Blind Evaluation Framework</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Audit &amp; Compliance</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">General Financial Rules (GFR)</a></li>
-              </ul>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="bg-white p-6 rounded-2xl border border-[#c4c6cf] shadow-xs">
+              <span className="w-10 h-10 rounded-xl bg-[#0b2447] text-white font-bold flex items-center justify-center text-base mb-4">1</span>
+              <h3 className="font-bold text-[#000f27] text-base mb-2">Problem Publication</h3>
+              <p className="text-xs text-[#44474e] leading-relaxed">
+                Government departments and ULBs publish verified municipal or technical challenges on the platform portal.
+              </p>
             </div>
-            <div>
-              <h4 className="text-sm font-bold text-white mb-3">Institutional</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-white transition-colors">RFP Submission Portal</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Vigilance Manual</a></li>
-              </ul>
+
+            <div className="bg-white p-6 rounded-2xl border border-[#c4c6cf] shadow-xs">
+              <span className="w-10 h-10 rounded-xl bg-[#0b2447] text-white font-bold flex items-center justify-center text-base mb-4">2</span>
+              <h3 className="font-bold text-[#000f27] text-base mb-2">Blind Evaluation</h3>
+              <p className="text-xs text-[#44474e] leading-relaxed">
+                Expert academic juries evaluate proposals under GFR 149(v) guidelines without knowing startup vendor identities.
+              </p>
             </div>
-            <div>
-              <h4 className="text-sm font-bold text-white mb-3">Statutory</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              </ul>
+
+            <div className="bg-white p-6 rounded-2xl border border-[#c4c6cf] shadow-xs">
+              <span className="w-10 h-10 rounded-xl bg-[#0b2447] text-white font-bold flex items-center justify-center text-base mb-4">3</span>
+              <h3 className="font-bold text-[#000f27] text-base mb-2">Secure Sandbox Escrow</h3>
+              <p className="text-xs text-[#44474e] leading-relaxed">
+                Selected startups are allocated sandbox testing environments and milestone-linked tranche funding.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-[#c4c6cf] shadow-xs">
+              <span className="w-10 h-10 rounded-xl bg-[#0b2447] text-white font-bold flex items-center justify-center text-base mb-4">4</span>
+              <h3 className="font-bold text-[#000f27] text-base mb-2">Monitored Pilot & Scale</h3>
+              <p className="text-xs text-[#44474e] leading-relaxed">
+                Successful stress-tested pilots directly qualify for government direct procurement contracts.
+              </p>
             </div>
           </div>
         </div>
-      </footer>
+      </section>
 
+      {/* INSTITUTIONAL FOOTER */}
+      <footer className="bg-[#000f27] text-white border-t border-[#c4c6cf]">
+        <div className="w-full max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-start gap-8">
+          <div className="space-y-3 max-w-md">
+            <div className="text-xl font-bold text-white flex items-center gap-2">
+              <span>Procure</span><span className="text-[#e6ac00]">Pilot</span>
+            </div>
+            <p className="text-[#e1e2e4] text-xs leading-relaxed">
+              National innovation procurement pipeline engineered under the Ministry of Electronics &amp; Information Technology, facilitating rapid statutory sandbox pilots for urban and public-sector challenges.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-xs font-semibold text-[#e1e2e4]">
+            <a className="text-[#ffe08e] hover:underline" href="#framework">Blind Evaluation Framework</a>
+            <a className="hover:text-[#ffe08e] transition-colors" href="#audit">Audit &amp; Compliance</a>
+            <a className="hover:text-[#ffe08e] transition-colors" href="#gfr">General Financial Rules (GFR)</a>
+            <a className="hover:text-[#ffe08e] transition-colors" href="#rfp">RFP Submission Portal</a>
+            <a className="hover:text-[#ffe08e] transition-colors" href="#vigilance">Vigilance Manual</a>
+            <a className="hover:text-[#ffe08e] transition-colors" href="#terms">Terms of Service</a>
+            <a className="hover:text-[#ffe08e] transition-colors" href="#privacy">Privacy Policy</a>
+          </div>
+        </div>
+        <div className="w-full max-w-7xl mx-auto px-6 py-4 border-t border-white/10 text-center text-xs text-gray-400">
+          © 2026 ProcurePilot India. All statutory rights reserved under MeitY Sandbox Framework.
+        </div>
+      </footer>
     </div>
   );
 }

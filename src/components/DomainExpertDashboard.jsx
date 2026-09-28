@@ -42,7 +42,6 @@ export default function DomainExpertDashboard({ onPreviousProposal, onNextPropos
   };
 
   const handleDownloadDossier = (fileName = 'ProcurePilot_Redacted_Dossier_PRP-2026-0447.pdf') => {
-    // Dummy PDF content simulating secure GFR 149(v) redacted documents
     const pdfContent = `%PDF-1.4
 1 0 obj
 << /Title (ProcurePilot Secure Redacted Dossier) /Producer (GovTech India STQC Level 3 Sandbox) >>
@@ -130,18 +129,29 @@ startxref
       {/* TOP NAVBAR */}
       <header className="bg-white border-b border-[#c4c6cf] sticky top-0 z-50">
         <div className="w-full max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-          <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded bg-[#0b2447] flex items-center justify-center text-white shadow-xs" title="National Emblem of India">
-              <span className="material-symbols-outlined text-[24px]">account_balance</span>
+          <div className="flex items-center gap-3">
+            {/* Custom Logo Icon */}
+            <div className="w-10 h-10 rounded-full bg-[#0b2447] border border-[#d4af37]/60 flex items-center justify-center text-white shadow-xs" title="ProcurePilot Logo">
+              <svg className="w-5 h-5 text-white transform rotate-45 translate-x-[-1px]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+              </svg>
             </div>
-            <div>
-              <div className="text-xl font-bold text-[#000f27] tracking-tight flex items-center gap-2">
-                ProcurePilot
+            
+            {/* Logo Text & Tagline */}
+            <div className="flex flex-col">
+              <div className="text-xl font-bold tracking-tight flex items-center gap-2">
+                <div>
+                  <span className="text-[#0b2447]">Procure</span>
+                  <span className="text-[#e6ac00]">Pilot</span>
+                </div>
                 <span className="bg-[#e7e8ea] text-[#44474e] text-[11px] font-semibold px-2 py-0.5 rounded border border-[#c4c6cf]">Sandbox v2.4</span>
               </div>
-              <p className="text-[11px] font-semibold text-[#44474e]">Statutory Innovation Procurement Platform</p>
+              <span className="text-[9px] font-semibold text-gray-400 tracking-wider uppercase -mt-0.5">
+                Launch. Pilot. Scale.
+              </span>
             </div>
           </div>
+
           <nav className="hidden md:flex items-center space-x-8 text-sm">
             <a className="text-[#44474e] hover:text-[#000f27] transition-colors px-2 py-1 rounded" href="#challenges">Challenges</a>
             <a className="text-[#44474e] hover:text-[#000f27] transition-colors px-2 py-1 rounded" href="#workflow">Workflow</a>
