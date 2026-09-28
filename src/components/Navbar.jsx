@@ -17,8 +17,7 @@ export default function Navbar({ onNavigate }) {
 
   return (
     <>
-      <header className="w-full bg-white border-b border-[#c4c6cf] sticky top-0 z-50 shadow-xs">
-        {/* Main Navigation Bar */}
+      <header className="w-full bg-white sticky top-0 z-50">
         <div className="w-full px-6 md:px-12 h-20 flex justify-between items-center">
           
           {/* Brand & Custom Logo */}
@@ -26,14 +25,12 @@ export default function Navbar({ onNavigate }) {
             className="flex items-center gap-3 cursor-pointer group" 
             onClick={() => onNavigate && onNavigate('landing')}
           >
-            {/* Custom Logo Icon matching your uploaded image */}
             <div className="w-10 h-10 rounded-full bg-[#0b2447] border border-[#d4af37]/60 flex items-center justify-center text-white shadow-xs">
               <svg className="w-5 h-5 text-white transform rotate-45 translate-x-[-1px]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
               </svg>
             </div>
             
-            {/* Logo Text */}
             <div className="flex flex-col">
               <div className="text-xl font-bold tracking-tight flex items-center">
                 <span className="text-[#0b2447]">Procure</span>
@@ -49,8 +46,8 @@ export default function Navbar({ onNavigate }) {
           <nav className="hidden lg:flex items-center space-x-8 text-sm font-medium text-[#333b4c]">
             <button type="button" onClick={handleHowItWorksClick} className="hover:text-[#0b2447] transition-colors cursor-pointer">How it Works</button>
             <button type="button" onClick={() => onNavigate && onNavigate('challenges')} className="hover:text-[#0b2447] transition-colors cursor-pointer">Challenges</button>
-            <button type="button" onClick={() => onNavigate && onNavigate('dashboard')} className="hover:text-[#0b2447] transition-colors cursor-pointer">For Government</button>
-            <button type="button" onClick={() => onNavigate && onNavigate('proposal-1')} className="hover:text-[#0b2447] transition-colors cursor-pointer">For Startups</button>
+            <button type="button" onClick={() => onNavigate && onNavigate('government-portal')} className="hover:text-[#0b2447] transition-colors cursor-pointer">For Government</button>
+            <button type="button" onClick={() => onNavigate && onNavigate('startup-profile')} className="hover:text-[#0b2447] transition-colors cursor-pointer">For Startups</button>
             <button type="button" onClick={() => onNavigate && onNavigate('dashboard')} className="hover:text-[#0b2447] transition-colors cursor-pointer">For Experts</button>
             <button type="button" onClick={() => setShowResourcesModal(true)} className="hover:text-[#0b2447] transition-colors cursor-pointer">Resources</button>
           </nav>

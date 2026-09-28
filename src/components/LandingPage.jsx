@@ -40,6 +40,28 @@ export default function LandingPage({ onNavigate, onLogin, onRegister, onExplore
         </div>
       </section>
 
+      {/* IMPACT / METRICS SECTION */}
+      <section className="w-full bg-white py-12 border-t border-b border-[#c4c6cf]/50 px-6">
+        <div className="w-full max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="p-4">
+            <span className="text-3xl md:text-4xl font-extrabold text-[#0b2447] block">₹42 Cr+</span>
+            <span className="text-xs font-semibold text-[#44474e] uppercase tracking-wider mt-1 block">Escrow RxF Allocated</span>
+          </div>
+          <div className="p-4">
+            <span className="text-3xl md:text-4xl font-extrabold text-[#0b2447] block">140+</span>
+            <span className="text-xs font-semibold text-[#44474e] uppercase tracking-wider mt-1 block">Challenges Solved</span>
+          </div>
+          <div className="p-4">
+            <span className="text-3xl md:text-4xl font-extrabold text-[#0b2447] block">650+</span>
+            <span className="text-xs font-semibold text-[#44474e] uppercase tracking-wider mt-1 block">Startups Onboarded</span>
+          </div>
+          <div className="p-4">
+            <span className="text-3xl md:text-4xl font-extrabold text-[#0b2447] block">98.4%</span>
+            <span className="text-xs font-semibold text-[#44474e] uppercase tracking-wider mt-1 block">GFR Compliance Rate</span>
+          </div>
+        </div>
+      </section>
+
       {/* HOW IT WORKS SECTION */}
       <section id="how-it-works-section" className="w-full bg-[#f8f9fb] py-20 px-6">
         <div className="w-full max-w-7xl mx-auto">
